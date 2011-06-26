@@ -9,24 +9,17 @@ import pl.net.bluesoft.rnd.newsletter.model.HibernateUtil;
 import pl.net.bluesoft.rnd.newsletter.model.NewsletterCategory;
 import pl.net.bluesoft.rnd.newsletter.model.NewsletterSubscription;
 
-import javax.mail.Message;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
-import java.util.Properties;
 
-import static com.liferay.portal.kernel.util.InfrastructureUtil.getMailSession;
 import static pl.net.bluesoft.rnd.newsletter.gui.VaadinUtil.*;
 import static pl.net.bluesoft.util.lang.FormatUtil.nvl;
 import static pl.net.bluesoft.util.lang.StringUtil.hasText;
 
 /**
+ * Main subscription pane, allowing user to subscribe and unsubscribe from a newsletter.
+ *
  * @author tlipski@bluesoft.net.pl
  */
 public class NewsletterSubscriptionPane extends VerticalLayout {

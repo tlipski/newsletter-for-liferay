@@ -16,6 +16,9 @@ import javax.portlet.*;
 import java.io.IOException;
 
 /**
+ * Newsletter application portlet, separating Vaadin classes from Liferay context and supporting two modes of
+ * operation: view (available to all users) and edit (available to portlet owner or an administrator).
+ *
  * @author tlipski@bluesoft.net.pl
  */
 public class NewsletterPortletApplication extends Application implements PortletApplicationContext2.PortletListener {

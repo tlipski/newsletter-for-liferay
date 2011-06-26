@@ -1,8 +1,6 @@
 package pl.net.bluesoft.rnd.newsletter.gui;
 
-import com.vaadin.event.MouseEvents;
 import com.vaadin.ui.*;
-import org.omg.CORBA.FREE_MEM;
 import pl.net.bluesoft.rnd.newsletter.model.HibernateUtil;
 import pl.net.bluesoft.rnd.newsletter.model.NewsletterCategory;
 
@@ -13,7 +11,8 @@ import static pl.net.bluesoft.rnd.newsletter.gui.VaadinUtil.*;
 import static pl.net.bluesoft.rnd.newsletter.gui.VaadinUtil.simpleScaffoldForJPA;
 
 /**
- * Created by IntelliJ IDEA.
+ * Newsletter administrators pane, allows administrator to manage newsletter categories.
+ * This pane is available inside Liferay's Control Panel.
  *
  * @author tlipski@bluesoft.net.pl
  */

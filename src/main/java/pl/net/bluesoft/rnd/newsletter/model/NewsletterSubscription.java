@@ -3,7 +3,7 @@ package pl.net.bluesoft.rnd.newsletter.model;
 import javax.persistence.*;
 
 /**
- * Created by IntelliJ IDEA.
+ * Newsletter subscription.
  *
  * @author tlipski@bluesoft.net.pl
  */

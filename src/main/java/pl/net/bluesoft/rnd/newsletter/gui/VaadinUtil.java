@@ -1,25 +1,23 @@
 package pl.net.bluesoft.rnd.newsletter.gui;
 
-import com.liferay.portal.util.PortalUtil;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.ui.*;
-import com.vaadin.ui.Field;
 
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import java.lang.reflect.*;
 import java.util.*;
 
 import static pl.net.bluesoft.util.lang.FormatUtil.nvl;
 
 /**
- * Created by IntelliJ IDEA.
+ * Simple vaadin helper methods/functions, making the overall Vaadin code shorter and simpler.
+ * Supports locale as selected by user, but a change of of Locale in Liferay will require user to restart Vaadin
+ * application.
  *
  * @author tlipski@bluesoft.net.pl
  */
 public class VaadinUtil {
 
-    //simplistic locale map
     private static Map<Thread, Locale> LOCALE_THREAD_MAP = new HashMap<Thread, Locale>();
 
     public static synchronized void setThreadLocale(Locale l) {
@@ -40,12 +38,6 @@ public class VaadinUtil {
         return new Label(getValue(key));
     }
 
-    public static Label label(String key, String width) {
-        Label l = label(key);
-        l.setWidth(width);
-        return l;
-    }
-
     public static Label simpleLabel(String text, String width) {
         Label l = new Label(text);
         l.setWidth(width);
@@ -54,10 +46,6 @@ public class VaadinUtil {
 
     public static Label htmlLabel(String key) {
         return new Label(getValue(key), Label.CONTENT_XHTML);
-    }
-
-    public static Label label(String key, int contentMode) {
-        return new Label(getValue(key), contentMode);
     }
 
     public static Button button(String key) {

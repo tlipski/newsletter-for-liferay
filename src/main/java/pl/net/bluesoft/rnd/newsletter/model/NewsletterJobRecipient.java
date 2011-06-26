@@ -3,7 +3,7 @@ package pl.net.bluesoft.rnd.newsletter.model;
 import javax.persistence.*;
 
 /**
- * Created by IntelliJ IDEA.
+ * One newsletter job recipient.
  *
  * @author tlipski@bluesoft.net.pl
  */
@@ -18,8 +18,8 @@ public class NewsletterJobRecipient {
 	@JoinColumn(name="job_id")
     private NewsletterJob job;
 
-    private String status; //"N" - new ,"P" - processing, "S" - sent, "E" - error
-    private String recipient; //recipient email
+    private String status;
+    private String recipient;
 
     @Lob
     private String errorMessage;

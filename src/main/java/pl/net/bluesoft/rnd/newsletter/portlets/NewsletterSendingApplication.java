@@ -8,6 +8,8 @@ import com.vaadin.ui.Window;
 import pl.net.bluesoft.rnd.newsletter.gui.NewsletterSendingPane;
 
 /**
+ * Newsletter sending application portlet, separating Vaadin classes from Liferay context.
+ *
  * @author tlipski@bluesoft.net.pl
  */
 public class NewsletterSendingApplication extends Application {

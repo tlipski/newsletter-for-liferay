@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by IntelliJ IDEA.
+ * Newsletter-sending job, collecting all of the subscribers.
  *
  * @author tlipski@bluesoft.net.pl
  */
@@ -17,7 +17,10 @@ public class NewsletterJob {
     @GeneratedValue
     private long id;
 
-    private String state; //"N" - New, "P" - Processing, "F" - Finished
+    public static final String STATE_NEW = "N";
+    public static final String STATE_PROCESSING = "P";
+    public static final String STATE_FINISHED = "F";
+    private String state;
 
     private String messageTitle;
     private String messageSender;
@@ -30,9 +33,6 @@ public class NewsletterJob {
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name="job_id")
     private Set<NewsletterJobRecipient> recipients;
-    public static final String STATE_NEW = "N";
-    public static final String STATE_PROCESSING = "P";
-    public static final String STATE_FINISHED = "F";
 
     public long getId() {
         return id;

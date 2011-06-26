@@ -6,9 +6,10 @@ import com.vaadin.terminal.gwt.server.PortletApplicationContext2;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Window;
 import pl.net.bluesoft.rnd.newsletter.gui.NewsletterAdminPane;
-import pl.net.bluesoft.rnd.newsletter.gui.NewsletterSendingPane;
 
 /**
+ * Admin application portlet, separating Vaadin classes from Liferay context.
+ *
  * @author tlipski@bluesoft.net.pl
  */
 public class NewsletterAdminApplication extends Application {

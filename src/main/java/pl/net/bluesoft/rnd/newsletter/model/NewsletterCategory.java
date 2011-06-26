@@ -5,7 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by IntelliJ IDEA.
+ * Newsletter category, which can have subscribers and can be used to send a newsletter to them.
+ *
  * @author tlipski@bluesoft.net.pl
  */
 

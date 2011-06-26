@@ -16,6 +16,8 @@ import static pl.net.bluesoft.rnd.newsletter.gui.VaadinUtil.*;
 
 
 /**
+ * Newsletter subscription edit pane - used by a newsletter portlet in edit mode to configure the portlet.
+ *
  * @author tlipski@bluesoft.net.pl
  */
 public class NewsletterSubscriptionEditPane extends VerticalLayout {

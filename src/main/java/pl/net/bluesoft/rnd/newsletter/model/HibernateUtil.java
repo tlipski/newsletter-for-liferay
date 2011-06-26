@@ -4,9 +4,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.classic.Session;
 
-
 /**
- * Created by IntelliJ IDEA.
+ * Simple Hibernate utility class.
  *
  * @author tlipski@bluesoft.net.pl
  */
@@ -17,10 +16,6 @@ public class HibernateUtil {
         AnnotationConfiguration annotationConfiguration = new AnnotationConfiguration();
         org.hibernate.cfg.Configuration cfg = annotationConfiguration.configure();
         sessionFactory = cfg.buildSessionFactory();
-    }
-
-    public static Session openSession() {
-        return null;//TODO DELETE this method sessionFactory.openSession();
     }
 
     public static Session getSession() {

@@ -13,6 +13,8 @@ import static pl.net.bluesoft.rnd.newsletter.gui.VaadinUtil.*;
 import static pl.net.bluesoft.util.lang.StringUtil.hasText;
 
 /**
+ * Newsletter sending pane - used newsletter content manager to send newsletter emails.
+ *
  * @author tlipski@bluesoft.net.pl
  */
 public class NewsletterSendingPane extends VerticalLayout {

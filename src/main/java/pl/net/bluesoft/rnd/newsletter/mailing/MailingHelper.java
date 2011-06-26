@@ -1,21 +1,12 @@
 package pl.net.bluesoft.rnd.newsletter.mailing;
 
-import com.liferay.mail.service.MailService;
 import com.liferay.mail.service.MailServiceUtil;
 import com.liferay.portal.kernel.mail.MailMessage;
-import com.liferay.portal.kernel.util.InfrastructureUtil;
 
-import javax.mail.Message;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import java.io.IOException;
-import java.util.Properties;
 
 /**
- * Created by IntelliJ IDEA.
+ * Simple utility class, hiding direct Liferay dependency.
  *
  * @author tlipski@bluesoft.net.pl
  */

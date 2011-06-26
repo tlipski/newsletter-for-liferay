@@ -3,20 +3,16 @@ package pl.net.bluesoft.rnd.newsletter;
 import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
 import org.hibernate.criterion.Restrictions;
-import pl.net.bluesoft.rnd.newsletter.gui.VaadinUtil;
 import pl.net.bluesoft.rnd.newsletter.mailing.MailingHelper;
 import pl.net.bluesoft.rnd.newsletter.model.HibernateUtil;
 import pl.net.bluesoft.rnd.newsletter.model.NewsletterJob;
 import pl.net.bluesoft.rnd.newsletter.model.NewsletterJobRecipient;
-import pl.net.bluesoft.rnd.newsletter.portlets.VaadinApplicationPortlet2;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
