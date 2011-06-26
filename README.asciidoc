@@ -23,4 +23,17 @@ The application delivers three independent portlets:
 The dependency on *pl.net.bluesoft.util* maven package can be resolved by obtaining and
 building https://github.com/tlipski/BlueSoft-Util.
 
-The application has been deployed and tested on liferay-portal-6.0.6 running on top of tomcat-6.0.29.
+The application has been deployed and tested on liferay-portal-6.0.6 running on top of tomcat-6.0.29. Vaadin version has
+been upgraded to 6.5.4 due to a problem with RichTextArea for Vaadin 6.4.10 provided initially with Liferay 6.0.6.
+
+Roadmap
+------------
+First of all, tests under different browsers/liferay configurations should be performed.
+
+The following features would be highly desired:
+* List subscribed users inside admin portlet
+* Management of subscribed users inside admin portlet/other portlet, including subscription for Liferay Users, Roles, Organizations etc.
+* Multithreaded sending mechanism (e.g. JMS-based)
+* Sent newsletters history and status (newsletter console)
+
+Than, features suggested at http://www.liferay.com/community/wiki/-/wiki/Proposals/Newsletter+Portlet should be considered.
