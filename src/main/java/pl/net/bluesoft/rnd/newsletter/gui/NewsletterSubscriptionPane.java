@@ -4,12 +4,14 @@ import com.vaadin.ui.*;
 import com.vaadin.ui.themes.BaseTheme;
 import org.apache.commons.codec.binary.Hex;
 import org.hibernate.criterion.Restrictions;
+import pl.net.bluesoft.rnd.newsletter.mailing.MailingHelper;
 import pl.net.bluesoft.rnd.newsletter.model.HibernateUtil;
 import pl.net.bluesoft.rnd.newsletter.model.NewsletterCategory;
 import pl.net.bluesoft.rnd.newsletter.model.NewsletterSubscription;
 
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -19,6 +21,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Properties;
 
+import static com.liferay.portal.kernel.util.InfrastructureUtil.getMailSession;
 import static pl.net.bluesoft.rnd.newsletter.gui.VaadinUtil.*;
 import static pl.net.bluesoft.util.lang.FormatUtil.nvl;
 import static pl.net.bluesoft.util.lang.StringUtil.hasText;
@@ -37,18 +40,12 @@ public class NewsletterSubscriptionPane extends VerticalLayout {
 	private Button confirmationLink = button("newsletter.subscription.code.link");
 
 	//taken from http://www.regular-expressions.info/email.html
-	private static final String EMAIL_REGEXP = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-	private Properties mailProperties;
+    private static final String EMAIL_REGEXP = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+    private MailingHelper mailingHelper = new MailingHelper();
 
-	public NewsletterSubscriptionPane(NewsletterCategory newsletterCategory) {
+    public NewsletterSubscriptionPane(NewsletterCategory newsletterCategory) {
 		this.newsletterCategory = newsletterCategory;
 		initComponents();
-		mailProperties = new Properties();
-		try {
-			mailProperties.load(getClass().getResourceAsStream("/mail.properties"));
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
 	}
 
 	public String getUrl() {
@@ -147,21 +144,22 @@ public class NewsletterSubscriptionPane extends VerticalLayout {
 		getWindow().addWindow(w);
 	}
 
-	private void sendEmail(String rcpt, String from, String subject, String body, boolean sendHtml,
-	                       javax.mail.Session mailSession) {
-
-		try {
-			Message message = new MimeMessage(mailSession);
-			message.setFrom(new InternetAddress(from));
-			message.setRecipients(Message.RecipientType.TO,
-			                      InternetAddress.parse(rcpt));
-			message.setSubject(subject);
-			message.setContent(body, sendHtml ? "text/html" : "text/plain");
-			Transport.send(message);
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
+	 private void sendNotificationEmail(String email, String key, String titleKey, String bodyKey) {
+        mailingHelper.sendEmail(email,
+                newsletterCategory.getNewsletterInfoFrom(),
+                expandTemplate(titleKey,
+                        new String[]{"url", url},
+                        new String[]{"categoryName", newsletterCategory.getDescription()}
+                ),
+                expandTemplate(bodyKey,
+                        new String[]{"url", url},
+                        new String[]{"key", key},
+                        new String[]{"email", email},
+                        new String[]{"categoryName", newsletterCategory.getDescription()},
+                        new String[]{"message", newsletterCategory.getNewsletterInfoMessage()}
+                ),
+                true);
+    }
 
 	private void handleSubscribe() {
 		String email = validateEmail();
@@ -193,31 +191,7 @@ public class NewsletterSubscriptionPane extends VerticalLayout {
 
 	}
 
-	private void sendNotificationEmail(String email, String key, String titleKey, String bodyKey) {
-		javax.mail.Session mailSession = javax.mail.Session.getDefaultInstance(mailProperties,
-		                                                                       new javax.mail.Authenticator() {
-			                                                                       protected PasswordAuthentication getPasswordAuthentication() {
-				                                                                       return new PasswordAuthentication(mailProperties.getProperty("mail.smtp.user"),
-				                                                                                                         mailProperties.getProperty("mail.smtp.password"));
-			                                                                       }
-		                                                                       });
-		sendEmail(email,
-		          newsletterCategory.getNewsletterInfoFrom(),
-		          expandTemplate(titleKey,
-		                         new String[]{"url", url },
-		                         new String[]{"categoryName", newsletterCategory.getDescription()}
-		          ),
-		          expandTemplate(bodyKey,
-		                         new String[]{"url", url },
-		                         new String[]{"key", key },
-		                         new String[]{"email", email },
-		                         new String[]{"categoryName", newsletterCategory.getDescription()},
-		                         new String[]{"message", newsletterCategory.getNewsletterInfoMessage()}
-		          ),
-		          true,
-		          mailSession
-		);
-	}
+
 
 	//of course, in a more sophisticated solution, freemarker would work much better
 	private String expandTemplate(String templateKey, String[]... vars) {

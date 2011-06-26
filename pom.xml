@@ -77,11 +77,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>quartz</groupId>
-            <artifactId>quartz</artifactId>
-            <version>1.5.2</version>
-        </dependency>
-        <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin</artifactId>
             <version>${vaadin.version}</version>
@@ -153,6 +148,7 @@
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
             <version>1.4.3</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>commons-codec</groupId>

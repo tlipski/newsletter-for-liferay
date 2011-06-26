@@ -280,6 +280,12 @@
         <load-on-startup>0</load-on-startup>
     </servlet>
 
+    <servlet>
+        <servlet-name>NewsletterSenderServlet</servlet-name>
+        <servlet-class>pl.net.bluesoft.rnd.newsletter.NewsletterSenderServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>VaadinPortletServlet</servlet-name>
         <url-pattern>/*</url-pattern>
