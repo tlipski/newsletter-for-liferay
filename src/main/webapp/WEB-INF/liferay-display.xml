@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<display>
+	<category name="BlueSoft RnD">
+		<portlet id="Newsletter Portlet"/>
+		<portlet id="Newsletter Sending Portlet"/>
+	</category>
+    <category name="category.hidden">
+        <portlet id="Newsletter Admin Portlet"/>
+    </category>
+</display>

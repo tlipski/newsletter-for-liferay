@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             version="2.0"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+
+    <portlet>
+        <portlet-name>Newsletter Portlet</portlet-name>
+        <display-name>BlueSoft Newsletter Portlet</display-name>
+        <portlet-class>pl.net.bluesoft.rnd.newsletter.portlets.VaadinApplicationPortlet2</portlet-class>
+
+        <init-param>
+            <name>application</name>
+            <value>pl.net.bluesoft.rnd.newsletter.portlets.NewsletterPortletApplication</value>
+        </init-param>
+        <init-param>
+            <name>widgetset</name>
+            <value>com.vaadin.portal.gwt.PortalDefaultWidgetSet</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+            <portlet-mode>edit</portlet-mode>
+        </supports>
+        <portlet-info>
+            <title>BlueSoft Newsletter Portlet</title>
+            <short-title>Newsletter</short-title>
+        </portlet-info>
+    </portlet>
+
+
+    <portlet>
+        <portlet-name>Newsletter Sending Portlet</portlet-name>
+        <display-name>BlueSoft Newsletter Sending Portlet</display-name>
+        <portlet-class>pl.net.bluesoft.rnd.newsletter.portlets.VaadinApplicationPortlet2</portlet-class>
+
+        <init-param>
+            <name>application</name>
+            <value>pl.net.bluesoft.rnd.newsletter.portlets.NewsletterSendingApplication</value>
+        </init-param>
+        <init-param>
+            <name>widgetset</name>
+            <value>com.vaadin.portal.gwt.PortalDefaultWidgetSet</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+        </supports>
+        <portlet-info>
+            <title>BlueSoft Newsletter Sending Portlet</title>
+            <short-title>Newsletter sending</short-title>
+        </portlet-info>
+    </portlet>
+    <portlet>
+        <portlet-name>Newsletter Admin Portlet</portlet-name>
+        <display-name>BlueSoft Newsletter Admin Portlet</display-name>
+        <portlet-class>pl.net.bluesoft.rnd.newsletter.portlets.VaadinApplicationPortlet2</portlet-class>
+
+        <init-param>
+            <name>application</name>
+            <value>pl.net.bluesoft.rnd.newsletter.portlets.NewsletterAdminApplication</value>
+        </init-param>
+        <init-param>
+            <name>widgetset</name>
+            <value>com.vaadin.portal.gwt.PortalDefaultWidgetSet</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+        </supports>
+        <portlet-info>
+            <title>BlueSoft Newsletter Admin Portlet</title>
+            <short-title>Newsletter Admin</short-title>
+        </portlet-info>
+    </portlet>
+
+</portlet-app>

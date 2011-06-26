@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<liferay-portlet-app>
+    <portlet>
+        <portlet-name>Newsletter Portlet</portlet-name>
+        <instanceable>true</instanceable>
+        <ajaxable>false</ajaxable>
+    </portlet>
+    <portlet>
+        <portlet-name>Newsletter Sending Portlet</portlet-name>
+        <instanceable>false</instanceable>
+        <ajaxable>false</ajaxable>
+    </portlet>
+
+    <portlet>
+        <portlet-name>Newsletter Admin Portlet</portlet-name>
+        <instanceable>false</instanceable>
+        <ajaxable>false</ajaxable>
+        <control-panel-entry-category>content</control-panel-entry-category>
+        <control-panel-entry-weight>1</control-panel-entry-weight>
+    </portlet>
+</liferay-portlet-app>
