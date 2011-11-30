@@ -8,8 +8,8 @@ Info
 Blue Newsletter is a showcase of rapidly developed (less than two days of work), enterprise-friendly Vaadin portlet for
 Liferay Portal. Persistence has been provided by the Hibernate Framework.
 
-Tutorial providing more implementation details and screenshots will soon be available at
-http://portal.bluesoft.net.pl/web/tlipski/blog
+Tutorial providing more implementation details and screenshots is available at
+http://www.bluesoft.net.pl/rnd/blog
 
 The application delivers three independent portlets:
  * newsletter subscription portlet - available to all users (of course depending on portlet instance configuration)
